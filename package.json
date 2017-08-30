@@ -9,7 +9,13 @@
   "author": "Anitha Senthilnathan",
   "license": "ISC",
   "dependencies": {
+    "api-ai-recognizer": "^1.1.1",
+    "botbuilder": "^3.9.1",
+    "dotenv-extended": "^2.0.1",
     "express": "^4.15.4",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "restify": "^5.2.0",
     "servicenow-rest": "^1.2.2"
   }
 }
