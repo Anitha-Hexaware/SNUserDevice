@@ -35,9 +35,20 @@ server.post('/', connector.listen());
 
 var bot = new builder.UniversalBot(connector, function (session) {
     session.send("You said: %s", session.message.text);
-    session.send(JSON.stringify(session.message));
-    //do check
-    //  fs.writeFileSync('./app.json', JSON.stringify(session),'utf8');
+    // session.send(JSON.stringify(session.message));
+    // do check
+     fs.writeFileSync('./app.json', JSON.stringify(session.message),'utf8');
+     if(session.message.text){
+         var req = APIAII.textRequest(session.message.text,{
+             sessionId : uuidv1
+         });
+         request.on('response', function(response){
+            let result = response.result;
+            session.send(JSON.stringify(result));
+         });
+     }
+
+
 });
 
 // var sN = new serviceNow({
