@@ -35,9 +35,9 @@ server.post('/', connector.listen());
 
 var bot = new builder.UniversalBot(connector, function (session) {
     session.send("You said: %s", session.message.text);
-    session.send("You said: %s", console.log(session));
+    session.send(JSON.stringify(session));
     //do check
-     fs.writeFileSync('./app.json', JSON.stringify(session),'utf8');
+    //  fs.writeFileSync('./app.json', JSON.stringify(session),'utf8');
 });
 
 // var sN = new serviceNow({
