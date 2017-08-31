@@ -34,19 +34,17 @@ var connector = new builder.ChatConnector({
 server.post('/', connector.listen());
 
 var bot = new builder.UniversalBot(connector, function (session) {
-    session.send("You said: %s", session.message.text);
+    // session.send("You said: %s", session.message.text);
     // session.send(JSON.stringify(session.message));
     // do check
     if (session.message.text) {
         var req = APIAII.textRequest(session.message.text, {
             sessionId: uuidv1
         });
-
-
         request.on('response', function (response) {
             let result = response.result;
             session.send(JSON.stringify(result));
-            if (result.metadata.intentName == "Default Welcome Intent") {
+            if (result.metadata.intentName == "Default_Welcome_Intent") {
                 session.send("Hi welcome !! \n\n How may I help you");
             } else if (result.metadata.intentName == "User registration") {
                 let email = result.parameters["email"];
@@ -62,6 +60,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
                         uLastName: lName,
                         uEmpId: empId
                     };
+
                     // var sN = new SerNow({
                     //     instance: 'dev24552',
                     //     tablename: 'sys_user',
@@ -70,11 +69,12 @@ var bot = new builder.UniversalBot(connector, function (session) {
                     //     v1: 'v1'
                     // });
 
-                    var sN = new SerNow('dev24552', 'sys_user', 'admin', 'GcXuKjkVNSZq', 'v1');
 
-                    sN.insert(obj).then(function (response) {
-                        session.send('Thank for your patience , Make sure you can login to update the details.')
-                    });
+
+                    // var sN = new SerNow('dev24552', 'sys_user', 'admin', 'GcXuKjkVNSZq', 'v1');
+                    // sN.insert(obj).then(function (response) {
+                    //     session.send('Thank for your patience , Make sure you can login to update the details.')
+                    // });
 
                 } else {
                     session.send(result.fulfillment.speech);
@@ -88,7 +88,6 @@ var bot = new builder.UniversalBot(connector, function (session) {
         });
         request.end();
     }
-
 
 });
 
