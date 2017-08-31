@@ -1,3 +1,4 @@
+var fs = require('fs');
 var builder = require('botbuilder');
 var restify = require('restify');
 var apiai = require('apiai');
@@ -6,8 +7,7 @@ const uuidv1 = require('uuid/v1')();
 require('dotenv-extended').load();
 var apiairecognizer = require('api-ai-recognizer');
 const unhandledRejection = require("unhandled-rejection");
-var request = require("request");
-var fs = require('fs');
+// var request = require("request");
 var SerNow = require('servicenow-rest').gliderecord;
 
 let rejectionEmitter = unhandledRejection({
@@ -38,7 +38,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
     session.send(JSON.stringify(session.message));
     // do check
     if (session.message.text) {
-        var req = APIAII.textRequest(session.message.text, {
+        var request = APIAII.textRequest(session.message.text, {
             sessionId: uuidv1
         });
         request.on('response', function (response) {
