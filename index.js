@@ -1,9 +1,9 @@
-require('dotenv-extended').load();
 var builder = require('botbuilder');
 var restify = require('restify');
 var apiai = require('apiai');
 var APIAII = apiai('1713551afad04759b3ca39e92f771774');
 const uuidv1 = require('uuid/v1')();
+require('dotenv-extended').load();
 var apiairecognizer = require('api-ai-recognizer');
 const unhandledRejection = require("unhandled-rejection");
 var request = require("request");
