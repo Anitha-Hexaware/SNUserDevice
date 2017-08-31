@@ -34,8 +34,8 @@ var connector = new builder.ChatConnector({
 server.post('/', connector.listen());
 
 var bot = new builder.UniversalBot(connector, function (session) {
-    session.send("You said: %s", session.message.text);
-    session.send(JSON.stringify(session.message));
+    // session.send("You said: %s", session.message.text);
+    // session.send(JSON.stringify(session.message));
     // do check
     if (session.message.text) {
         var request = APIAII.textRequest(session.message.text, {
@@ -43,6 +43,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
         });
         request.on('response', function (response) {
             let result = response.result;
+            //do check
             session.send(JSON.stringify(result));
             if (result.metadata.intentName == "Default_Welcome_Intent") {
                 session.send("Hi welcome !! \n\n How may I help you");
