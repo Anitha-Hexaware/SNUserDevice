@@ -1,0 +1,70 @@
+{“
+    source”: “agent”,
+    “resolvedQuery”: “albert”,
+    “action”: “Userregistration.Userregistration - yes”,
+    “actionIncomplete”: false,
+    “parameters”: {“
+        uername”: “Albert”
+    },
+    “contexts”: [{“
+        name”: “userregistration - followup”,
+        “parameters”: {“
+            uername.original”: “albert”,
+            “uername”: “Albert”
+        },
+        “lifespan”: 4
+    }, {“
+        name”: “userregistration - yes - followup”,
+        “parameters”: {“
+            uername.original”: “albert”,
+            “uername”: “Albert”
+        },
+        “lifespan”: 2
+    }],
+    “metadata”: {“
+        intentId”: “23118 d3c - 74 bf - 4905 - aef6 - 17653846 d87a”,
+        “webhookUsed”: “false”,
+        “webhookForSlotFillingUsed”: “false”,
+        “intentName”: “User registration - yes”
+    },
+    “fulfillment”: {“
+        speech”: “Nice to meet you $name.Can I have your Employee ID number please.”,
+        “messages”: [{“
+            type”: 0,
+            “speech”: “Nice to meet you $name.Can I have your Employee ID number please.”
+        }]
+    },
+    “score”: 1
+}
+
+
+
+// parent intent
+{“
+    source”: “agent”,
+    “resolvedQuery”: “need to register”,
+    “action”: "",
+    “actionIncomplete”: false,
+    “parameters”: {},
+    “contexts”: [{“
+        name”: “userregistration - followup”,
+        “parameters”: {},
+        “lifespan”: 5
+    }],
+    “metadata”: {“
+        intentId”: “7 ddbfef8 - 7643 - 4 ca8 - b438 - 45 b1b7006b80”,
+        “webhookUsed”: “false”,
+        “webhookForSlotFillingUsed”: “false”,
+        “intentName”: “User registration”
+    },
+    “fulfillment”: {“
+        speech”: “sure,
+        Can you give me your name please ? ”,
+        “messages” : [{“
+            type”: 0,
+            “speech”: “sure,
+            Can you give me your name please ? ”
+        }]
+    },
+    “score”: 1
+}
