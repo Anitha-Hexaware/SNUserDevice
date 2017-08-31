@@ -52,6 +52,8 @@ var bot = new builder.UniversalBot(connector, function (session) {
                 let fName = result.parameters["given-name"];
                 let lName = result.parameters["last-name"];
                 let empId = result.parameters["number"];
+
+                
                 // let userPassword= result.parameters["password"];
                 // let userNameintent= result.parameters["username"];
                 if (email != "" && fName !== "" && lName !== "" && empId !== "") {
