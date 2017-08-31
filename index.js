@@ -35,7 +35,7 @@ server.post('/', connector.listen());
 
 var bot = new builder.UniversalBot(connector, function (session) {
     session.send("You said: %s", session.message.text);
-    // session.send(JSON.stringify(session.message));
+    session.send(JSON.stringify(session.message));
     // do check
     if (session.message.text) {
         var req = APIAII.textRequest(session.message.text, {
