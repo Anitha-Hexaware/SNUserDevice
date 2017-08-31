@@ -48,12 +48,15 @@ var bot = new builder.UniversalBot(connector, function (session) {
             if (result.metadata.intentName == "Default_Wecome_Intent") {
                 session.send("Hi welcome !! \n\n How may I help you");
             } else if (result.metadata.intentName == "User registration") {
+
+                session.send(result.fulfillment.speech);
+            } else if (result.metadata.intentName == "User registration - yes") {
                 let email = result.parameters["email"];
                 let fName = result.parameters["given-name"];
                 let lName = result.parameters["last-name"];
                 let empId = result.parameters["number"];
 
-                
+
                 // let userPassword= result.parameters["password"];
                 // let userNameintent= result.parameters["username"];
                 if (email != "" && fName !== "" && lName !== "" && empId !== "") {
