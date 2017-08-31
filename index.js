@@ -44,7 +44,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
         request.on('response', function (response) {
             let result = response.result;
             //do check
-            // session.send(JSON.stringify(result));
+            session.send(JSON.stringify(result));
             if (result.metadata.intentName == "Default_Wecome_Intent") {
                 session.send("Hi welcome !! \n\n How may I help you");
             } else if (result.metadata.intentName == "User registration") {
@@ -52,11 +52,16 @@ var bot = new builder.UniversalBot(connector, function (session) {
                 session.send(result.fulfillment.speech);
             } else if (result.metadata.intentName == "User registration - yes"){
                  session.send(result.fulfillment.speech);
-            } else if (result.metadata.intentName == "User registration - yes - yes") {
+                 
+            }
+            
+             else if (result.metadata.intentName == "User registration - yes - yes") {
                 let email = result.parameters["email"];
-                let fName = result.parameters["given-name"];
-                let lName = result.parameters["last-name"];
-                let empId = result.parameters["number"];
+                let fName = result.parameters["firstname"];
+                let lName = result.parameters["lastname"];
+                let empId = result.parameters["empId"];
+                let password = result.parameters["password"];
+
 
 
                 // let userPassword= result.parameters["password"];
