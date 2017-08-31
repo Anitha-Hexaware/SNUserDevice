@@ -45,7 +45,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
             let result = response.result;
             //do check
             session.send(JSON.stringify(result));
-            if (result.metadata.intentName == "Default_Welcome_Intent") {
+            if (result.metadata.intentName == "Default_Wecome_Intent") {
                 session.send("Hi welcome !! \n\n How may I help you");
             } else if (result.metadata.intentName == "User registration") {
                 let email = result.parameters["email"];
