@@ -2,7 +2,7 @@ require('dotenv-extended').load();
 var builder = require('botbuilder');
 var restify = require('restify');
 var apiai = require('apiai');
-var APIAII = apiai('854ef36ee9ff4389baf041d8f87e40e0');
+var APIAII = apiai('1713551afad04759b3ca39e92f771774');
 const uuidv1 = require('uuid/v1')();
 var apiairecognizer = require('api-ai-recognizer');
 const unhandledRejection = require("unhandled-rejection");
@@ -27,12 +27,17 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
 var connector = new builder.ChatConnector({
-    appId: 'd60f4a2a-5926-42c5-baa6-db7a8ddcd162',
-    appPassword: '2uiQBbbGGAhkxnGVJDBeb9X'
+    appId: 'b79e8f44-3de3-4325-aec4-4fb6a7d05697',
+    appPassword: 'eGt9QpMkd6KPQGNWYEKSSYk'
 });
 
 server.post('/', connector.listen());
 
+var bot = new builder.UniversalBot(connector, function (session) {
+    session.send("You said: %s", session.message.text);
+    //do check
+    // fs.writeFileSync('./app.json', JSON.stringify(session),'utf8');
+});
 
 // var sN = new serviceNow({
 //     instance: 'dev24552',
