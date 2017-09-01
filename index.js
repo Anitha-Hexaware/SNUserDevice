@@ -70,7 +70,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
                         user_password: password,
                         first_name: fName,
                         last_name: lName,
-                        user_name:fName+"."+lName,
+                        user_name: fName + "." + lName,
                         employee_number: empId
                     };
                     var sNInserting = new SerNow('dev24552', 'sys_user', 'admin', 'tN7uuKZXmSfU');
@@ -78,27 +78,26 @@ var bot = new builder.UniversalBot(connector, function (session) {
                         // session.send("Device has successfully updated!!!");
                         session.send(result.fulfillment.speech);
                     })
-
-
-                } else if (result.metadata.intentName == "User registration - yes DeviceRegistration- yes") {
-                    let deviceName = result.parameters["Dname"];
-                    let mobileNum = result.parameters["mobileNumber"];
-                    let devDes = result.parameters["description"];
-                    session.send(result.fulfillment.speech);
-                    if (deviceName != "" && mobileNum !== "" && devDes !== "") {
-                        var deviceDetails = {
-                            assigned_to:fName+" "+lName,
-                            name:deviceName
-                        };
-                        var sNDeviceInserting = new SerNow('dev24552', 'cmdb_ci_comm', 'admin', 'tN7uuKZXmSfU');
-                        sNDeviceInserting.insert(deviceDetails).then(function (response) {
-                            // session.send("Device has successfully updated!!!");
-                            session.send(result.fulfillment.speech);
-                        })
-                    }
-                } else if (result.metadata.intentName == "User registration - yes DeviceRegistration- yes - no") {
-                    session.send(result.fulfillment.speech);
                 }
+
+            } else if (result.metadata.intentName == "User registration - yes DeviceRegistration- yes") {
+                let deviceName = result.parameters["Dname"];
+                let mobileNum = result.parameters["mobileNumber"];
+                let devDes = result.parameters["description"];
+                session.send(result.fulfillment.speech);
+                if (deviceName != "" && mobileNum !== "" && devDes !== "") {
+                    var deviceDetails = {
+                        assigned_to: fName + " " + lName,
+                        name: deviceName
+                    };
+                    var sNDeviceInserting = new SerNow('dev24552', 'cmdb_ci_comm', 'admin', 'tN7uuKZXmSfU');
+                    sNDeviceInserting.insert(deviceDetails).then(function (response) {
+                        // session.send("Device has successfully updated!!!");
+                        session.send(result.fulfillment.speech);
+                    })
+                }
+            } else if (result.metadata.intentName == "User registration - yes DeviceRegistration- yes - no") {
+                session.send(result.fulfillment.speech);
             } else if (result.metadata.intentName == "Default Fallback Intent") {
                 session.send(result.fulfillment.speech);
             }
