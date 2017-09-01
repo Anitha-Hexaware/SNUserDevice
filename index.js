@@ -59,9 +59,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
                 let lName = result.parameters["lastname"];
                 let empId = result.parameters["empId"];
                 // let password = result.parameters["password"];
-                let password = "john123"
-
-
+                // let password = "john123"
                 // let userPassword= result.parameters["password"];
                 // let userNameintent= result.parameters["username"];
                 if (email != "" && fName !== "" && lName !== "" && empId !== "") {
@@ -78,6 +76,8 @@ var bot = new builder.UniversalBot(connector, function (session) {
                         // session.send("Device has successfully updated!!!");
                         session.send(result.fulfillment.speech);
                     })
+                } else {
+                    session.send(result.fulfillment.speech);
                 }
 
             } else if (result.metadata.intentName == "User registration - yes DeviceRegistration- yes") {
