@@ -69,8 +69,8 @@ var bot = new builder.UniversalBot(connector, function (session) {
                         uLastName: lName,
                         uEmpId: empId
                     };
-                    var sNInserting = new SerNow('dev43073', 'sys_user', 'admin', 'BUCnMM5FWds8');
-                    sNInserting.insert(obj).then(function (response) {
+                    var sNInserting = new SerNow('dev24552', 'sys_user', 'admin', 'tN7uuKZXmSfU');
+                    sNInserting.insert(userdetails).then(function (response) {
                         // session.send("Device has successfully updated!!!");
                         session.send(result.fulfillment.speech);
                     })
