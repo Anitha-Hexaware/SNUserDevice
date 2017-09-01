@@ -68,3 +68,183 @@
     },
     “score”: 1
 }
+
+
+// password problem
+{“
+    source”: “agent”,
+    “resolvedQuery”: “john @gmail.com”,
+    “action”: “Userregistration.Userregistration - yes.Userregistration - yes - yes”,
+    “actionIncomplete”: true,
+    “parameters”: {“
+        email”: “john @gmail.com”,
+        “empId”: “231”,
+        “firstname”: “Albert”,
+        “lastname”: “Mathew”,
+        “password”: "",
+        “uername”: “John”
+    },
+    “contexts”: [{“
+        name”: “user_registration_ - yes - yes_dialog_context ",“parameters”:{“uername.original”:“john”,“uername”:“John”,“firstname.original”:“albert”,“empId”:“231”,“password”:"
+        ",“firstname”:“Albert”,“email.original”:“john@gmail.com”,“empId.original”:“231”,“password.original”:"
+        ",“lastname.original”:“mathew”,“email”:“john@gmail.com”,“lastname”:“Mathew”},“lifespan”:2},{“name”:"
+        user_registration - yes - _yes_dialog_params_password”,
+        “parameters”: {“
+            uername.original”: “john”,
+            “uername”: “John”,
+            “firstname.original”: “albert”,
+            “empId”: “231”,
+            “password”: "",
+            “firstname”: “Albert”,
+            “email.original”: “john @gmail.com”,
+            “empId.original”: “231”,
+            “password.original”: "",
+            “lastname.original”: “mathew”,
+            “email”: “john @gmail.com”,
+            “lastname”: “Mathew”
+        },
+        “lifespan”: 1
+    }, {“
+        name”: “userregistration - followup”,
+        “parameters”: {“
+            firstname.original”: “albert”,
+            “empId”: “231”,
+            “uername.original”: “john”,
+            “uername”: “John”,
+            “password”: "",
+            “firstname”: “Albert”,
+            “email.original”: “john @gmail.com”,
+            “empId.original”: “231”,
+            “password.original”: "",
+            “lastname.original”: “mathew”,
+            “email”: “john @gmail.com”,
+            “lastname”: “Mathew”
+        },
+        “lifespan”: 3
+    }, {“
+        name”: “2 ce86f95 - 037e-4 df5 - bed8 - 24e9991 db17e_id_dialog_context”,
+        “parameters”: {“
+            uername.original”: “john”,
+            “uername”: “John”,
+            “firstname.original”: “albert”,
+            “empId”: “231”,
+            “password”: "",
+            “firstname”: “Albert”,
+            “email.original”: “john @gmail.com”,
+            “empId.original”: “231”,
+            “password.original”: "",
+            “lastname.original”: “mathew”,
+            “email”: “john @gmail.com”,
+            “lastname”: “Mathew”
+        },
+        “lifespan”: 2
+    }, {“
+        name”: “userregistration - yes - followup”,
+        “parameters”: {“
+            firstname.original”: “albert”,
+            “empId”: “231”,
+            “uername.original”: “john”,
+            “uername”: “John”,
+            “password”: "",
+            “firstname”: “Albert”,
+            “email.original”: “john @gmail.com”,
+            “empId.original”: “231”,
+            “password.original”: "",
+            “lastname.original”: “mathew”,
+            “email”: “john @gmail.com”,
+            “lastname”: “Mathew”
+        },
+        “lifespan”: 2
+    }],
+    “metadata”: {“
+        intentId”: “2 ce86f95 - 037e-4 df5 - bed8 - 24e9991 db17e”,
+        “webhookUsed”: “false”,
+        “webhookForSlotFillingUsed”: “false”,
+        “intentName”: “User registration - yes - yes”
+    },
+    “fulfillment”: {“
+        speech”: “Give me your password ? ”,
+        “messages”: [{“
+            type”: 0,
+            “speech”: “Give me your password ? ”
+        }]
+    },
+    “score”: 1
+}
+
+
+
+
+//speech content same
+{“
+    source”: “agent”,
+    “resolvedQuery”: “john @gmail.com”,
+    “action”: “Userregistration.Userregistration - yes.Userregistration - yes - yes”,
+    “actionIncomplete”: false,
+    “parameters”: {“
+        email”: “john @gmail.com”,
+        “empId”: “546345”,
+        “firstname”: “John”,
+        “lastname”: “Mathew”
+    },
+    “contexts”: [{“
+        name”: “userregistration - yes - yes - followup”,
+        “parameters”: {“
+            firstname.original”: “John”,
+            “empId”: “546345”,
+            “firstname”: “John”,
+            “email.original”: “john @gmail.com”,
+            “empId.original”: “546345”,
+            “lastname.original”: “Mathew”,
+            “email”: “john @gmail.com”,
+            “lastname”: “Mathew”
+        },
+        “lifespan”: 5
+    }, {“
+        name”: “userregistration - followup”,
+        “parameters”: {“
+            firstname.original”: “John”,
+            “empId”: “546345”,
+            “uername.original”: “john”,
+            “uername”: “John”,
+            “firstname”: “John”,
+            “email.original”: “john @gmail.com”,
+            “empId.original”: “546345”,
+            “lastname.original”: “Mathew”,
+            “email”: “john @gmail.com”,
+            “lastname”: “Mathew”
+        },
+        “lifespan”: 3
+    }, {“
+        name”: “userregistration - yes - followup”,
+        “parameters”: {“
+            firstname.original”: “John”,
+            “empId”: “546345”,
+            “uername.original”: “john”,
+            “uername”: “John”,
+            “firstname”: “John”,
+            “email.original”: “john @gmail.com”,
+            “empId.original”: “546345”,
+            “lastname.original”: “Mathew”,
+            “email”: “john @gmail.com”,
+            “lastname”: “Mathew”
+        },
+        “lifespan”: 1
+    }],
+    “metadata”: {“
+        intentId”: “2 ce86f95 - 037e-4 df5 - bed8 - 24e9991 db17e”,
+        “webhookUsed”: “false”,
+        “webhookForSlotFillingUsed”: “false”,
+        “intentName”: “User registration - yes - yes”
+    },
+    “fulfillment”: {“
+        speech”: “Thank you
+        for giving the details.Could you please register the device also ? ”,
+        “messages” : [{“
+            type”: 0,
+            “speech”: “Thank you
+            for giving the details.Could you please register the device also ? ”
+        }]
+    },
+    “score”: 1
+}
