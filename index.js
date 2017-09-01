@@ -85,10 +85,11 @@ var bot = new builder.UniversalBot(connector, function (session) {
                 let mobileNum = result.parameters["mobileNumber"];
                 let devDes = result.parameters["description"];
                 session.send(result.fulfillment.speech);
-                if (deviceName != "" && mobileNum !== "" && devDes !== "") {
+                if (deviceName != ""  && devDes !== "") {
                     var deviceDetails = {
-                        assigned_to: fName + " " + lName,
-                        name: deviceName
+                        // assigned_to: fName + " " + lName,
+                        name: deviceName,
+                        short_description: devDes
                     };
                     var sNDeviceInserting = new SerNow('dev24552', 'cmdb_ci_comm', 'admin', 'tN7uuKZXmSfU');
                     sNDeviceInserting.insert(deviceDetails).then(function (response) {
