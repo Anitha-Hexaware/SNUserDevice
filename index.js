@@ -44,7 +44,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
         request.on('response', function (response) {
             let result = response.result;
             //do check
-            session.send(JSON.stringify(result));
+            // session.send(JSON.stringify(result));
             if (result.metadata.intentName == "Default_Wecome_Intent") {
                 session.send("Hi welcome !! \n\n How may I help you");
             } else if (result.metadata.intentName == "User registration") {
@@ -58,14 +58,12 @@ var bot = new builder.UniversalBot(connector, function (session) {
                 let fName = result.parameters["firstname"];
                 let lName = result.parameters["lastname"];
                 let empId = result.parameters["empId"];
-                let password = result.parameters["password"];
                 // let password = "john123"
                 // let userPassword= result.parameters["password"];
                 // let userNameintent= result.parameters["username"];
                 if (email != "" && fName !== "" && lName !== "" && empId !== "") {
                     var userdetails = {
                         email: email,
-                        user_password: password,
                         first_name: fName,
                         last_name: lName,
                         user_name: fName + "." + lName,
@@ -85,7 +83,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
                 let mobileNum = result.parameters["mobileNumber"];
                 let devDes = result.parameters["description"];
                 session.send(result.fulfillment.speech);
-                if (deviceName != ""  && devDes !== "") {
+                if (deviceName != "" && devDes !== "") {
                     var deviceDetails = {
                         // assigned_to: fName + " " + lName,
                         name: deviceName,
